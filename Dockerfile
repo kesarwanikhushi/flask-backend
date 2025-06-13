@@ -1,17 +1,17 @@
-# Use the official lightweight Python image
+# Use official Python image
 FROM python:3.9-slim
 
-# Set working directory in container
+# Set working directory
 WORKDIR /app
 
-# Copy project files into the container
+# Copy files
 COPY . .
 
-# Install Python dependencies
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port (this doesn't control it, just informs Docker)
-EXPOSE 5000
+# Expose the port for Railway to detect
+EXPOSE 8080
 
-# Run the app, Railway will inject PORT env variable
+# Start the app — use $PORT from Railway
 CMD ["python", "app.py"]
