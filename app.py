@@ -8,5 +8,6 @@ def hello():
     return jsonify({"message": "Hello from Flask!"})
 
 if __name__ == '__main__':
-    PORT = int(os.environ.get("PORT", 5000))  # ← this line is the fix
+    import os
+    PORT = int(os.environ.get("PORT", 8080))
     app.run(host='0.0.0.0', port=PORT)
